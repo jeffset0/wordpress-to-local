@@ -71,7 +71,7 @@ def main():
     # Replace with localhost in sql dump file
     with fileinput.FileInput(local_path + domain + '.sql', inplace=True, backup='.bak') as file:
         for line in file:
-            print(line.replace('(1,\'siteurl\',\'https://' + domain + '\',\'yes\')', '(1,\'siteurl\',\'http://' + db_hostname + ':8000\',\'yes\')').replace('(2,\'home\',\'https://' + domain + '\',\'yes\')', '(2,\'home\',\'http://' + db_hostname + ':8000\',\'yes\')'), end='')
+            print(line.replace('(1,\'siteurl\',\'https://' + domain + '\',\'yes\')', '(1,\'siteurl\',\'' + db_hostname + '\',\'yes\')').replace('(2,\'home\',\'https://' + domain + '\',\'yes\')', '(2,\'home\',\'' + db_hostname + '\',\'yes\')'), end='')
 
 
 if __name__ == '__main__':
